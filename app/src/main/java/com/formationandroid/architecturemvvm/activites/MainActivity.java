@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.formationandroid.architecturemvvm.DIApplication;
 import com.formationandroid.architecturemvvm.R;
 import com.formationandroid.architecturemvvm.models.Planete;
 import com.formationandroid.architecturemvvm.repositories.MainRepository;
@@ -12,11 +13,11 @@ import com.formationandroid.architecturemvvm.viewmodels.MainViewModel;
 
 import javax.inject.Inject;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import dagger.android.support.DaggerAppCompatActivity;
 
-public class MainActivity extends DaggerAppCompatActivity
+public class MainActivity extends AppCompatActivity
 {
 	
 	// Injection repository :
@@ -35,6 +36,7 @@ public class MainActivity extends DaggerAppCompatActivity
 	{
 		// init :
 		super.onCreate(savedInstanceState);
+		DIApplication.getAppComponent().mainComponent().create().inject(this);
 		setContentView(R.layout.activity_main);
 		
 		// vues :

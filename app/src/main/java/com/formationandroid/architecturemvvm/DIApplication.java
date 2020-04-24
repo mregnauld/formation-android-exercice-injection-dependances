@@ -1,12 +1,11 @@
 package com.formationandroid.architecturemvvm;
 
+import android.app.Application;
+
 import com.formationandroid.architecturemvvm.di.AppComponent;
 import com.formationandroid.architecturemvvm.di.DaggerAppComponent;
 
-import dagger.android.AndroidInjector;
-import dagger.android.support.DaggerApplication;
-
-public class DIApplication extends DaggerApplication
+public class DIApplication extends Application
 {
 	
 	private static DIApplication instance = null;
@@ -15,20 +14,17 @@ public class DIApplication extends DaggerApplication
 	@Override
 	public void onCreate()
 	{
+		// initialisation :
 		super.onCreate();
 		instance = this;
+		
+		// dagger :
+		appComponent = DaggerAppComponent.builder().application(this).build();
 	}
 	
 	public static AppComponent getAppComponent()
 	{
 		return instance.appComponent;
-	}
-	
-	@Override
-	protected AndroidInjector<? extends DaggerApplication> applicationInjector()
-	{
-		appComponent = DaggerAppComponent.builder().application(this).build();
-		return appComponent;
 	}
 	
 }

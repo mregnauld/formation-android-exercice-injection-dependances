@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.formationandroid.architecturemvvm"
         minSdkVersion 16
@@ -27,11 +27,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     implementation 'com.google.dagger:dagger:2.26'
-    implementation 'com.google.dagger:dagger-android:2.26'
-    implementation 'com.google.dagger:dagger-android-support:2.26'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.26'
-    annotationProcessor 'com.google.dagger:dagger-android-processor:2.26'
-    annotationProcessor 'com.google.dagger:dagger-android-support:2.26'
     annotationProcessor 'android.arch.lifecycle:compiler:1.1.1'
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

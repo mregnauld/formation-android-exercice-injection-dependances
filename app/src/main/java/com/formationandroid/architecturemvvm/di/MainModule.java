@@ -9,6 +9,7 @@ import dagger.Provides;
 abstract class MainModule
 {
 	
+	@ActivityScope
 	@Provides
 	static MainRepository provideMainRepository()
 	{
